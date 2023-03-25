@@ -1,9 +1,16 @@
 import boto3
+import sys
+
+
+region = sys.argv[1]
+accesskey = sys.argv[2]
+secretkey = sys.argv[3]
+
 
 Client = boto3.client('ec2',
-                      region_name ='ap-southeast-1',
-                      aws_access_key_id ='AKIAQGBI5HETXWMGUP5G',
-                      aws_secret_access_key ='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', )
+                      region_name =region,
+                      aws_access_key_id =accesskey,
+                      aws_secret_access_key =secretkey)
 
 listec2 = Client.describe_instances()
 
